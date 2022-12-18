@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/orcasecurity/shiftleft-container-action.git"
+    "url": "git+https://github.com/orcasecurity/shiftleft-container-image-action.git"
   },
   "keywords": [],
   "author": "",
