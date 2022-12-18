@@ -128,16 +128,6 @@ function validate_flags() {
   [[ -z "${INPUT_OUTPUT}" ]] || [[ "${INPUT_OUTPUT}" == */ ]] || [[ -d "${INPUT_OUTPUT}" ]] || exit_with_err "output must be a folder (end with /)"
 }
 
-annotate() {
-  if [ "${INPUT_SHOW_ANNOTATIONS}" == "false" ]; then
-    exit "${ORCA_EXIT_CODE}"
-  fi
-  mkdir -p "/app/${OUTPUT_FOR_JSON}"
-  cp "${OUTPUT_FOR_JSON}/container.json" "/app/${OUTPUT_FOR_JSON}/"
-  cd /app || exit_with_err "error during annotations initiation"
-  npm run build --if-present
-  node dist/index.js
-}
 
 function main() {
   validate_flags
@@ -146,7 +136,6 @@ function main() {
   prepare_json_to_file_flags
   set_container_scan_flags
   run_orca_container_scan
-  annotate
 }
 
 main "${@}"
