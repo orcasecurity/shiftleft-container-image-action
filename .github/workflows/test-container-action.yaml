@@ -2,7 +2,7 @@ name: Test Orca Container Image action
 
 on: [pull_request]
 
-
+ 
 jobs:
   container_scan_job:
     runs-on: ubuntu-latest
