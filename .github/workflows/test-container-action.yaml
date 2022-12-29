@@ -21,7 +21,7 @@ jobs:
             "json"
           output:
             "/"
-          console_output: "true"
+          console_output: "table"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
