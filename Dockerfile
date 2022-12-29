@@ -7,9 +7,9 @@ WORKDIR /app
 # Therefore, commands which change rarely, must be in the beginning.
 COPY package*.json ./
 # Install dependencies using npm ci instead of npm install to avoid packages updating accidentally
-RUN npm ci
+# RUN npm ci
 # Copy the js source code to the image:
-COPY ./src ./src
+# COPY ./src ./src
 
 WORKDIR /
 COPY entrypoint.sh /entrypoint.sh
