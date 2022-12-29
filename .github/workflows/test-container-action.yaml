@@ -1,7 +1,7 @@
 name: Test Orca Container Image action
 
-on:
-  workflow_dispatch:
+on: [pull_request]
+
 
 jobs:
   container_scan_job:
