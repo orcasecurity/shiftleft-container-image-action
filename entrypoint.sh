@@ -122,7 +122,6 @@ function set_env_vars() {
 }
 
 function validate_flags() {
-  [[ -n "${INPUT_PATH}" ]] || exit_with_err "path must be provided"
   [[ -n "${INPUT_API_TOKEN}" ]] || exit_with_err "api_token must be provided"
   [[ -n "${INPUT_PROJECT_KEY}" ]] || exit_with_err "project_key must be provided"
   [[ -z "${INPUT_OUTPUT}" ]] || [[ "${INPUT_OUTPUT}" == */ ]] || [[ -d "${INPUT_OUTPUT}" ]] || exit_with_err "output must be a folder (end with /)"
