@@ -16,11 +16,11 @@ jobs:
           project_key:
             "default"
           image:
-            "redis"
+            "redis:latest"
           format:
             "json"
           output:
-            "results/"
+            "/"
           console_output: "true"
       - uses: actions/upload-artifact@v3
         if: always()
