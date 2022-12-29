@@ -20,7 +20,7 @@ jobs:
           format:
             "json"
           output:
-            "/"
+            "results/"
           console_output: "table"
       - uses: actions/upload-artifact@v3
         if: always()
