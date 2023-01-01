@@ -16,7 +16,7 @@ jobs:
           project_key:
             "default"
           image:
-            "redis:latest"
+            "docker"
           format:
             "json"
           output:
