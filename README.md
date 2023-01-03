@@ -39,13 +39,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Orca Container Image Scan
-        uses: orcasecurity/shiftleft-container-action@v1
+        uses: orcasecurity/shiftleft-container-image-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}
-          image:
-            # scanning image
-            "your_image:latest"
+          image: <image to scan>
+          format: "sarif"
+          output:
+            "results/"
 ```
 
 ### Inputs
