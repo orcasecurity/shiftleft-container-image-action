@@ -44,7 +44,6 @@ jobs:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}
           image: <image to scan>
-          format: "sarif"
           output:
             "results/"
 ```
