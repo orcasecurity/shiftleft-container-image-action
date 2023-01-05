@@ -52,14 +52,14 @@ function prepare_json_to_file_flags() {
   CONSOLE_OUTPUT_FOR_JSON="${INPUT_CONSOLE_OUTPUT}"
   if [[ -z "${INPUT_OUTPUT}" ]]; then
     # Results should be printed to console in the selected format
-    CONSOLE_OUTPUT_FOR_JSON="${INPUT_FORMAT:-cli}"
+    CONSOLE_OUTPUT_FOR_JSON="${INPUT_FORMAT:-table}"
     # Results should also be stored in a directory
     OUTPUT_FOR_JSON="orca_results/"
   fi
 
   if [[ -z "${INPUT_FORMAT}" ]]; then
     # The default format should be provided together with the one we are adding
-    FORMATS_FOR_JSON="cli,json"
+    FORMATS_FOR_JSON="table,json"
   else
     if [[ "${INPUT_FORMAT}" == *"json"* ]]; then
       FORMATS_FOR_JSON="${INPUT_FORMAT}"
