@@ -135,6 +135,7 @@ function main() {
   prepare_json_to_file_flags
   set_container_scan_flags
   run_orca_container_scan
+  exit "${ORCA_EXIT_CODE}"
 }
 
 main "${@}"
