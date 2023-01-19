@@ -89,16 +89,16 @@ function set_container_scan_flags() {
   if [ "${INPUT_OCI}" == "true" ]; then
     SCAN_FLAGS+=(--oci)
   fi
-  if [ "${DISABLE_SECRET}" = "true" ]; then
+  if [ "${INPUT_DISABLE_SECRET}" = "true" ]; then
     SCAN_FLAGS+=(--disable-secret)
   fi
   if [ "${INPUT_EXCEPTIONS_FILEPATHS}" ]; then
     SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATHS}")
   fi
-  if [ "${HIDE_VULNERABILITIES}" = "true" ]; then
+  if [ "${INPUT_HIDE_VULNERABILITIES}" = "true" ]; then
     SCAN_FLAGS+=(--hide-vulnerabilities)
   fi
-  if [ "${NUM_CPU}" ]; then
+  if [ "${INPUT_NUM_CPU}" ]; then
     SCAN_FLAGS+=(--num-cpu "${NUM_CPU}")
   fi
   if [ "${INPUT_SHOW_FAILED_ISSUES_ONLY}" = "true" ]; then
@@ -112,6 +112,9 @@ function set_container_scan_flags() {
   fi
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
+  fi
+  if [ "${INPUT_SKIP_REMOTE_LOOKUP}" == "true"  ]; then
+    SCAN_FLAGS+=(--skip-remote-lookup)
   fi
 }
 

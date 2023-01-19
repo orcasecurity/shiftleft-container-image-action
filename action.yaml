@@ -93,3 +93,7 @@ inputs:
     description: "show github annotations on pull requests"
     required: false
     default: "true"
+  skip_remote_lookup:
+    description: "Do not perform remote lookups for dependency information during the scan"
+    required: false
+    default: "false"
