@@ -56,7 +56,7 @@ jobs:
 | project_key             | my-project-key       | Project Key name                                                                  | String  | Yes      | N/A     |
 | image                   | redis:latest         | Image name and tag to scan                                                        | String  | Yes      | N/A     |
 | format                  | json                 | Format for displaying the results                                                 | String  | No       | cli     |
-| output                  | ./results            | Output file name                                                                  | String  | No       | N/A     |
+| output                  | results/             | Output directory                                                                  | String  | No       | N/A     |
 | no_color                | false                | Disable color output                                                              | Boolean | No       | false   |
 | exit_code               | 10                   | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
 | silent                  | false                | Disable logs and warnings output                                                  | Boolean | No       | false   |
