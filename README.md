@@ -71,15 +71,16 @@ jobs:
 | oci                     | n/a                  | scan an OCI image                                                                 | Boolean | No       | false   |
 
 ### Output
-By default the scan output file is stored within the `results/` directory, with the file name following the format of `image<.format_extention>`.
-For instance:
-| Output format | Defult output location |
-|---------------|------------------------|
-| table         | results/image          |
-| json          | results/image.json     |
-| sarif         | results/image.sarif    |
+By default, the scan output is displayed on the console, but you can choose to save the output to a specific directory as a file. You can specify the output directory using the `output` option as desribed in the [Inputs](https://github.com/orcasecurity/shiftleft-container-image-action/blob/main/README.md#inputs) section.
 
-To customize the output directory name, you can use the `output` option as desribed in the [Inputs](https://github.com/orcasecurity/shiftleft-container-image-action/blob/main/README.md#inputs) section.
+The output file name is following the format of `image<.output_format_extension>`.
+
+For instance:
+| Output format | Output directory | Output file path     |
+|---------------|------------------|----------------------|
+| table         | results/         | results/image        |
+| json          | results/         | results/image.json   |
+| sarif         | results/         | results/image.sarif  |
 
 ## Upload SARIF report
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
