@@ -56,7 +56,7 @@ jobs:
 | project_key             | my-project-key       | Project Key name                                                                  | String  | Yes      | N/A     |
 | image                   | redis:latest         | Image name and tag to scan                                                        | String  | Yes      | N/A     |
 | format                  | json                 | Format for displaying the results                                                 | String  | No       | cli     |
-| output                  | results/             | Output directory                                                                  | String  | No       | N/A     |
+| output                  | results/             | Output directory                                                                  | String  | No       | results/|
 | no_color                | false                | Disable color output                                                              | Boolean | No       | false   |
 | exit_code               | 10                   | Exit code for failed execution due to policy violations                           | Integer | No       | 3       |
 | silent                  | false                | Disable logs and warnings output                                                  | Boolean | No       | false   |
@@ -70,7 +70,16 @@ jobs:
 | tar-archive             | n/a                  | scan a tar archived image. Input should be the path of the image .tar file        | Boolean | No       | false   |
 | oci                     | n/a                  | scan an OCI image                                                                 | Boolean | No       | false   |
 
+### Output
+By default the scan output file is stored within the `results/` directory, with the file name following the format of `image<.format_extention>`.
+For instance:
+| Output format | Defult output location |
+|---------------|------------------------|
+| table         | results/image          |
+| json          | results/image.json     |
+| sarif         | results/image.sarif    |
 
+To customize the output directory name, you can use the `output` option as desribed in the [Inputs](https://github.com/orcasecurity/shiftleft-container-image-action/blob/main/README.md#inputs) section.
 
 ## Upload SARIF report
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
