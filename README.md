@@ -97,6 +97,8 @@ jobs:
     build-cli:
       name: build-cli
       runs-on: ubuntu-latest
+      permissions:
+        security-events: write
       env: 
         IMAGE_NAME: <image name>
         PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
