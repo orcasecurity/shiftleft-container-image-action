@@ -1,0 +1,38 @@
+
+
+name: Test Orca Container Image action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  container_scan_job:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan Container Image
+        uses: ./
+        with:
+          api_token:
+            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key:
+            "default"
+          image:
+            "docker"
+          format:
+            "json,sarif"
+          output:
+            "results/"
+          console_output: "table"
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: orca-results
+          path: results/
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: results/image.sarif
