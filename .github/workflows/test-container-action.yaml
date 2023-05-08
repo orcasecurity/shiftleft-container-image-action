@@ -16,7 +16,7 @@ jobs:
           project_key:
             "default"
           image:
-            "docker"
+            "alpine:3"
           format:
             "json"
           output:
