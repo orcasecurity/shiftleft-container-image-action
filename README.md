@@ -67,6 +67,7 @@ jobs:
 | hide_vulnerabilities    | n/a                  | do not show detailed view of the vulnerabilities findings                         | Boolean | No       | false   |
 | num_cpu                 | 10                   | Number of logical CPUs to be used for secret scanning (default 10)                | Integer | No       | 10      |
 | show_failed_issues_only | n/a                  | show only failed issues                                                           | Boolean | No       | false   |
+| custom_secret_controls  | custom_rules.yaml    | path to custom secret controls file                                               | String  | No       | N/A     |
 | tar-archive             | n/a                  | scan a tar archived image. Input should be the path of the image .tar file        | Boolean | No       | false   |
 | oci                     | n/a                  | scan an OCI image                                                                 | Boolean | No       | false   |
 
