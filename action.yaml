@@ -83,6 +83,9 @@ inputs:
   exceptions-filepath:
     description: "exceptions YAML filepath. (File should be mounted)"
     required: false
+  custom_secret_controls:
+    description: "path to custom secret controls file."
+    required: false
   console_output:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false

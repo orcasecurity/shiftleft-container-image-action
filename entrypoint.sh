@@ -113,8 +113,11 @@ function set_container_scan_flags() {
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
   fi
-  if [ "${INPUT_SKIP_REMOTE_LOOKUP}" == "true"  ]; then
+  if [ "${INPUT_SKIP_REMOTE_LOOKUP}" == "true" ]; then
     SCAN_FLAGS+=(--skip-remote-lookup)
+  fi
+  if [ "${INPUT_CUSTOM_SECRET_CONTROLS}" ]; then
+    SCAN_FLAGS+=(--custom-secret-controls="${INPUT_CUSTOM_SECRET_CONTROLS}")
   fi
 }
 
@@ -129,7 +132,6 @@ function validate_flags() {
   [[ -n "${INPUT_PROJECT_KEY}" ]] || exit_with_err "project_key must be provided"
   [[ -z "${INPUT_OUTPUT}" ]] || [[ "${INPUT_OUTPUT}" == */ ]] || [[ -d "${INPUT_OUTPUT}" ]] || exit_with_err "output must be a folder (end with /)"
 }
-
 
 function main() {
   validate_flags
