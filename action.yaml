@@ -1,5 +1,5 @@
-name: "Orca Container Image Scan"
-description: "Configures Orca CLI to run Container Image security scan on your code"
+name: "Orca Security - Container Image Scanning"
+description: "Configures Orca CLI to run Container Image security scans"
 branding:
   icon: "shield"
   color: "green"
