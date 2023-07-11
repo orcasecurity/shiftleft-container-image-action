@@ -33,7 +33,7 @@ jobs:
           echo ${{ steps.orcasecurity.outputs.finished }}
           echo ${{ steps.orcasecurity.outputs.finished == 'true' }}
       - uses: actions/upload-artifact@v3
-        if: steps.orcasecurity.outputs.finished == 'true'
+        if: ${{ steps.orcasecurity.outputs.finished == 'true' }}
         with:
           name: orca-results
           path: results/
