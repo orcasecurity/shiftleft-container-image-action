@@ -13,9 +13,11 @@ function run_orca_container_scan() {
   orca-cli "${GLOBAL_FLAGS[@]}" image scan "${SCAN_FLAGS[@]}"
   export ORCA_EXIT_CODE=$?
 
-  # save exit code on output
-  echo "exitcode=${ORCA_EXIT_CODE}" >>"$GITHUB_OUTPUT"
-
+  if [ $? -eq 1 ]; then
+    echo "finished=false" >> "$GITHUB_ENV"
+  else
+    echo "finished=true" >> "$GITHUB_ENV"
+  fi
 }
 
 function set_global_flags() {

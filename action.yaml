@@ -102,5 +102,5 @@ inputs:
     default: "false"
 
 outputs:
-    exitcode:
+    finished:
       description: "The status of the scan"
