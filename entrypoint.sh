@@ -15,9 +15,9 @@ function run_orca_container_scan() {
 
   if [[ $? -eq 1 ]]
   then
-    echo "finished=false" >> "$GITHUB_ENV"
+    echo "finished=false" >> "$GITHUB_OUTPUT"
   else
-    echo "finished=true" >> "$GITHUB_ENV"
+    echo "finished=true" >> "$GITHUB_OUTPUT"
   fi
 }
 
