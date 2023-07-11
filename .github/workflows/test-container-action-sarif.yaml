@@ -27,6 +27,8 @@ jobs:
           output:
             "results/"
           console_output: "table"
+      - name: print results
+        run: echo ${{ steps.orcasecurity.outputs.finished }}
       - uses: actions/upload-artifact@v3
         if: ${{ steps.orcasecurity.outputs.finished == 'true' }}
         with:
