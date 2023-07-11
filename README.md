@@ -126,7 +126,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
+        if: ${{ failure() && steps.orcasecurity.outputs.finished == 'true' }}
         with:
           sarif_file: results/image.sarif
 ```
