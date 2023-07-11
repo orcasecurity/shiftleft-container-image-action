@@ -21,7 +21,7 @@ jobs:
           project_key:
             "default"
           image:
-            "alpine:3"
+            "asfafsasf:3"
           format:
             "json,sarif"
           output:
