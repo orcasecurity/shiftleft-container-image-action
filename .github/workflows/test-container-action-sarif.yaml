@@ -33,12 +33,12 @@ jobs:
           echo ${{ steps.orcasecurity.outputs.finished }}
           echo ${{ steps.orcasecurity.outputs.finished == 'true' }}
       - uses: actions/upload-artifact@v3
-        if: ${{ steps.orcasecurity.outputs.finished == 'true' }}
+        if: steps.orcasecurity.outputs.finished == 'true'
         with:
           name: orca-results
           path: results/
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if:   always() && steps.orcasecurity.outputs.finished == 'true'
+        if: always() && steps.orcasecurity.outputs.finished == 'true'
         with:
           sarif_file: results/image.sarif
