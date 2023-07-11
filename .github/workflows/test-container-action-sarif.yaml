@@ -21,7 +21,7 @@ jobs:
           project_key:
             "default"
           image:
-            "redis:5.0.6"
+            "ascascascas:5.0.6"
           format:
             "json,sarif"
           output:
