@@ -28,12 +28,12 @@ jobs:
             "results/"
           console_output: "table"
       - uses: actions/upload-artifact@v3
-        if: always()
+        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
         with:
           name: orca-results
           path: results/
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: ${{ steps.orcasecurity.outputs.exitcode == 3 }}
+        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
         with:
           sarif_file: results/image.sarif
