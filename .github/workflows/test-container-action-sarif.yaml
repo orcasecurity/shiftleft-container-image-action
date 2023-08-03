@@ -14,12 +14,18 @@ jobs:
         id: orcasecurity
         uses: ./
         with:
-          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key: "default"
-          image: "ascascascas:5.0.6"
-          format: "json,sarif"
-          output: "results/"
-          console_output: "table"
+          api_token: 
+            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key:
+            "default"
+          image:
+            "alpine:3"
+          format:
+            "json,sarif"
+          output:
+            "results/"
+          console_output:
+            "table"
       - name: print results
         if: always()
         run: |
