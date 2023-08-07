@@ -120,7 +120,7 @@ jobs:
 
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
-        id: orcasecurity
+        id: orcasecurity_container_image_scan
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ env.PROJECT_KEY }}
@@ -130,7 +130,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: ${{ steps.orcasecurity.outputs.finished == 'true' }}
+        if: ${{ always() && steps.orcasecurity_container_image_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/image.sarif
 ```
