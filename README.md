@@ -22,11 +22,15 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 ```yaml
 name: Sample Orca Container Image Scan Workflow
 on:
-  # Trigger the workflow on push request,
-  # but only for the main branch
+  # Scan for each push event on your protected branch. If you have a different branch configured, please adjust the configuration accordingly by replacing 'main'.
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  # NOTE: To enable scanning for pull requests, uncomment the section below.
+  #pull_request:
+    #branches: [ "main" ]
+  # NOTE: To schedule a daily scan at midnight, uncomment the section below.
+  #schedule:
+    #- cron: '0 0 * * *'
 jobs:
   orca-container_scan:
     name: Orca Container Image Scan
@@ -126,7 +130,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: ${{ always() && steps.orcasecurity_container_image_scan.outputs.finished != 1 }}
+        if: ${{ always() && steps.orcasecurity_container_image_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/image.sarif
 ```
