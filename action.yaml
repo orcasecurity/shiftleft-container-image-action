@@ -55,7 +55,7 @@ inputs:
   oci:
     description: "Scan an OCI image"
     required: false
-  tar-archive:
+  tar_archive:
     description: "Scan a tar archived image. Input should be the path of the image .tar file"
     required: false
   image:
@@ -80,24 +80,38 @@ inputs:
     description: "Show only failed issues in CLI results"
     required: false
     default: "false"
-  exceptions-filepath:
-    description: "exceptions YAML filepath. (File should be mounted)"
+  exceptions_filepath:
+    description: "Exceptions YAML filepath. (File should be mounted)"
     required: false
   custom_secret_controls:
-    description: "path to custom secret controls file."
+    description: "Path to custom secret controls file."
     required: false
   console_output:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false
   config:
-    description: "path to configuration file (json, yaml or toml)"
+    description: "Path to configuration file (json, yaml or toml)"
     required: false
   show_annotations:
-    description: "show github annotations on pull requests"
+    description: "Show github annotations on pull requests"
     required: false
     default: "true"
   skip_remote_lookup:
     description: "Do not perform remote lookups for dependency information during the scan"
+    required: false
+    default: "false"
+  hide_skipped_vulnerabilities:
+    description: "filter out skipped vulnerabilities from result"
+    required: false
+    default: "false"
+  max_secret:
+    description: "Set the maximum secrets that can be found, when reaching this number secret scan will stop"
+    required: false
+  exclude_paths:
+    description: "List of paths to be excluded from scan (comma-separated). Example: './notToBeScanned/,example.tf'"
+    required: false
+  dependency_tree:
+    description: "Show dependency origin tree of vulnerable packages"
     required: false
     default: "false"
 

@@ -79,8 +79,8 @@ function set_container_scan_flags() {
   if [ "${INPUT_IMAGE}" ]; then
     SCAN_FLAGS+=("${INPUT_IMAGE}")
   fi
-  if [ "${INPUT_TAR_PATH}" ]; then
-    SCAN_FLAGS+=(--tar-archive "${INPUT_TAR_PATH}")
+  if [ "${INPUT_TAR_ARCHIVE}" ]; then
+    SCAN_FLAGS+=(--tar-archive "${INPUT_TAR_ARCHIVE}")
   fi
   if [ "${INPUT_TIMEOUT}" ]; then
     SCAN_FLAGS+=(--timeout "${INPUT_TIMEOUT}")
@@ -94,8 +94,8 @@ function set_container_scan_flags() {
   if [ "${INPUT_DISABLE_SECRET}" = "true" ]; then
     SCAN_FLAGS+=(--disable-secret)
   fi
-  if [ "${INPUT_EXCEPTIONS_FILEPATHS}" ]; then
-    SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATHS}")
+  if [ "${INPUT_EXCEPTIONS_FILEPATH}" ]; then
+    SCAN_FLAGS+=(--exceptions-filepath "${INPUT_EXCEPTIONS_FILEPATH}")
   fi
   if [ "${INPUT_HIDE_VULNERABILITIES}" = "true" ]; then
     SCAN_FLAGS+=(--hide-vulnerabilities)
@@ -120,6 +120,18 @@ function set_container_scan_flags() {
   fi
   if [ "${INPUT_CUSTOM_SECRET_CONTROLS}" ]; then
     SCAN_FLAGS+=(--custom-secret-controls="${INPUT_CUSTOM_SECRET_CONTROLS}")
+  fi
+  if [ "${INPUT_HIDE_SKIPPED_VULNERABILITIES}" == "true"  ]; then
+    SCAN_FLAGS+=(--hide-skipped-vulnerabilities)
+  fi
+  if [ "${INPUT_MAX_SECRET}" ]; then
+    SCAN_FLAGS+=(--max-secret "${INPUT_MAX_SECRET}")
+  fi
+  if [ "${INPUT_EXCLUDE_PATHS}" ]; then
+    SCAN_FLAGS+=(--exclude-paths "${INPUT_EXCLUDE_PATHS}")
+  fi
+  if [ "${INPUT_DEPENDENCY_TREE}" == "true" ]; then
+    SCAN_FLAGS+=(--dependency-tree)
   fi
 }
 
