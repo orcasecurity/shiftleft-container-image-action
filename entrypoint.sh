@@ -45,6 +45,9 @@ function set_global_flags() {
   if [ "${INPUT_SYNC_BASELINE}" ]; then
     GLOBAL_FLAGS+=(--sync-baseline "${INPUT_SYNC_BASELINE}")
   fi
+  if [ "${INPUT_DISPLAY_NAME}" ]; then
+    GLOBAL_FLAGS+=(--display-name "${INPUT_DISPLAY_NAME}")
+  fi
 }
 
 # Json format must be reported and be stored in a file for github annotations
