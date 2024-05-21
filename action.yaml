@@ -117,6 +117,13 @@ inputs:
     description: "Show dependency origin tree of vulnerable packages"
     required: false
     default: "false"
+  debug:
+    description: "Debug mode"
+    required: false
+    default: "false"
+  log_path:
+    description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
+    required: false
 
 outputs:
     exit_code:

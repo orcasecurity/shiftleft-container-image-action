@@ -80,6 +80,8 @@ jobs:
 | max_secret                   | 10                           | Set the maximum secrets that can be found, when reaching this number secret scan will stop | Integer | No       | 10000        |
 | exclude_paths                | ./notToBeScanned/,example.tf | List of paths to be excluded from scan (comma-separated)                                   | String  | No       | N/A          |
 | dependency_tree              | false                        | Show dependency origin tree of vulnerable packages                                         | Boolean | No       | false        |
+| debug                        | true                         | Debug mode                                                                                 | Boolean | No       | false        |
+| log_path                     | results/                     | The directory path to specify where the logs should be written to on debug mode.           | String  | No       | working dir  |
 
 ### Output
 By default, the scan output is displayed on the console, but you can choose to save the output to a specific directory as a file. You can specify the output directory using the `output` option as desribed in the [Inputs](https://github.com/orcasecurity/shiftleft-container-image-action/blob/main/README.md#inputs) section.
