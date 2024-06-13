@@ -40,7 +40,7 @@ jobs:
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
@@ -137,7 +137,7 @@ jobs:
           output:
             "results/"
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_container_image_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/image.sarif
