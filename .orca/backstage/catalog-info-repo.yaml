@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: catalog-base-locations-shiftleft-container-image-action
+  labels:
+    repository: shiftleft-container-image-action
+  annotations:
+    github.com/project-slug: orcasecurity/shiftleft-container-image-action
+spec:
+  presence: optional
+  targets:
+    - ./repository-info.yaml
+    - ./catalog-component-locations.yaml
