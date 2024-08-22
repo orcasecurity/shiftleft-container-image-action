@@ -13,7 +13,7 @@ jobs:
     permissions:
       security-events: write
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # ratchet:actions/checkout@v3
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # ratchet:actions/checkout@v4
       - name: Scan Container Image
         id: orcasecurity_container_image_scan
         uses: ./
@@ -24,13 +24,13 @@ jobs:
           format: "json,sarif"
           output: "results/"
           console_output: "table"
-      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # ratchet:actions/upload-artifact@v3
+      - uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # ratchet:actions/upload-artifact@v4
         if: always()
         with:
           name: orca-results
           path: results/
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@ceaec5c11a131e0d282ff3b6f095917d234caace # ratchet:github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@2e230e8fe0ad3a14a340ad0815ddb96d599d2aff # ratchet:github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_container_image_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/image.sarif
