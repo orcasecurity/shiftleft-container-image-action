@@ -51,6 +51,9 @@ function set_global_flags() {
   if [ "${INPUT_DEBUG}" == "true" ]; then
     GLOBAL_FLAGS+=(--debug)
   fi
+  if [ "${INPUT_DISABLE_ACTIVE_VERIFICATION}" == "true" ]; then
+    GLOBAL_FLAGS+=(--disable-active-verification)
+  fi
   if [ "${INPUT_LOG_PATH}" ]; then
     GLOBAL_FLAGS+=(--log-path "${INPUT_LOG_PATH}")
   fi
