@@ -54,34 +54,35 @@ jobs:
 
 ### Inputs
 
-| Variable                     | Example Value &nbsp;         | Description &nbsp;                                                                         | Type    | Required | Default      |
-|------------------------------|------------------------------|--------------------------------------------------------------------------------------------|---------|----------|--------------|
-| api_token                    |                              | Orca API Token used for Authentication                                                     | String  | Yes      | N/A          |
-| project_key                  | my-project-key               | Project Key name                                                                           | String  | Yes      | N/A          |
-| image                        | redis:latest                 | Image name and tag to scan                                                                 | String  | Yes      | N/A          |
-| format                       | json                         | Format for displaying the results                                                          | String  | No       | cli          |
-| output                       | results/                     | Output directory for scan results                                                          | String  | No       | N/A          |
-| no_color                     | false                        | Disable color output                                                                       | Boolean | No       | false        |
-| exit_code                    | 10                           | Exit code for failed execution due to policy violations                                    | Integer | No       | 3            |
-| silent                       | false                        | Disable logs and warnings output                                                           | Boolean | No       | false        |
-| console_output               | json                         | Prints results to console in the provided format (only when --output is provided)          | String  | No       | cli          |
-| config                       | config.json                  | Path to configuration file (json, yaml or toml)                                            | String  | No       | N/A          |
-| disable_secret               | true                         | Disables the secret detection scanning                                                     | Boolean | No       | false        |
-| exceptions_filepath          | n/a                          | Exceptions YAML filepath. (File should be mounted)                                         | String  | No       | false        |
-| hide_vulnerabilities         | n/a                          | Do not show detailed view of the vulnerabilities findings                                  | Boolean | No       | false        |
-| num_cpu                      | 10                           | Number of logical CPUs to be used for secret scanning (default 10)                         | Integer | No       | 10           |
-| show_failed_issues_only      | n/a                          | Show only failed issues                                                                    | Boolean | No       | false        |
-| custom_secret_controls       | custom_rules.yaml            | Path to custom secret controls file                                                        | String  | No       | N/A          |
-| tar_archive                  | n/a                          | Scan a tar archived image. Input should be the path of the image .tar file                 | Boolean | No       | false        |
-| oci                          | n/a                          | Scan an OCI image                                                                          | Boolean | No       | false        |
-| skip_remote_lookup           | false                        | Do not perform remote lookups for dependency information during the scan.                  | Boolean | No       | false        |
-| display_name                 | custom-display-name          | Scan log display name (on Orca platform)                                                   | String  | No       | N/A          |
-| hide_skipped_vulnerabilities | false                        | Filter out skipped vulnerabilities from result                                             | Boolean | No       | false        |
-| max_secret                   | 10                           | Set the maximum secrets that can be found, when reaching this number secret scan will stop | Integer | No       | 10000        |
-| exclude_paths                | ./notToBeScanned/,example.tf | List of paths to be excluded from scan (comma-separated)                                   | String  | No       | N/A          |
-| dependency_tree              | false                        | Show dependency origin tree of vulnerable packages                                         | Boolean | No       | false        |
-| debug                        | true                         | Debug mode                                                                                 | Boolean | No       | false        |
-| log_path                     | results/                     | The directory path to specify where the logs should be written to on debug mode.           | String  | No       | working dir  |
+| Variable                     | Example Value &nbsp;         | Description &nbsp;                                                                         | Type    | Required | Default     |
+|------------------------------|------------------------------|--------------------------------------------------------------------------------------------|---------|----------|-------------|
+| api_token                    |                              | Orca API Token used for Authentication                                                     | String  | Yes      | N/A         |
+| project_key                  | my-project-key               | Project Key name                                                                           | String  | Yes      | N/A         |
+| image                        | redis:latest                 | Image name and tag to scan                                                                 | String  | Yes      | N/A         |
+| format                       | json                         | Format for displaying the results                                                          | String  | No       | cli         |
+| output                       | results/                     | Output directory for scan results                                                          | String  | No       | N/A         |
+| no_color                     | false                        | Disable color output                                                                       | Boolean | No       | false       |
+| exit_code                    | 10                           | Exit code for failed execution due to policy violations                                    | Integer | No       | 3           |
+| silent                       | false                        | Disable logs and warnings output                                                           | Boolean | No       | false       |
+| console_output               | json                         | Prints results to console in the provided format (only when --output is provided)          | String  | No       | cli         |
+| config                       | config.json                  | Path to configuration file (json, yaml or toml)                                            | String  | No       | N/A         |
+| disable_secret               | true                         | Disables the secret detection scanning                                                     | Boolean | No       | false       |
+| exceptions_filepath          | n/a                          | Exceptions YAML filepath. (File should be mounted)                                         | String  | No       | false       |
+| hide_vulnerabilities         | n/a                          | Do not show detailed view of the vulnerabilities findings                                  | Boolean | No       | false       |
+| num_cpu                      | 10                           | Number of logical CPUs to be used for secret scanning (default 10)                         | Integer | No       | 10          |
+| show_failed_issues_only      | n/a                          | Show only failed issues                                                                    | Boolean | No       | false       |
+| custom_secret_controls       | custom_rules.yaml            | Path to custom secret controls file                                                        | String  | No       | N/A         |
+| tar_archive                  | n/a                          | Scan a tar archived image. Input should be the path of the image .tar file                 | Boolean | No       | false       |
+| oci                          | n/a                          | Scan an OCI image                                                                          | Boolean | No       | false       |
+| skip_remote_lookup           | false                        | Do not perform remote lookups for dependency information during the scan.                  | Boolean | No       | false       |
+| display_name                 | custom-display-name          | Scan log display name (on Orca platform)                                                   | String  | No       | N/A         |
+| hide_skipped_vulnerabilities | false                        | Filter out skipped vulnerabilities from result                                             | Boolean | No       | false       |
+| max_secret                   | 10                           | Set the maximum secrets that can be found, when reaching this number secret scan will stop | Integer | No       | 10000       |
+| exclude_paths                | ./notToBeScanned/,example.tf | List of paths to be excluded from scan (comma-separated)                                   | String  | No       | N/A         |
+| dependency_tree              | false                        | Show dependency origin tree of vulnerable packages                                         | Boolean | No       | false       |
+| debug                        | true                         | Debug mode                                                                                 | Boolean | No       | false       |
+| log_path                     | results/                     | The directory path to specify where the logs should be written to on debug mode.           | String  | No       | working dir |
+| disable-active-verification  | true                         | Disable active verification of secrets                                                     | Boolean | No       | false       |
 
 ### Output
 By default, the scan output is displayed on the console, but you can choose to save the output to a specific directory as a file. You can specify the output directory using the `output` option as desribed in the [Inputs](https://github.com/orcasecurity/shiftleft-container-image-action/blob/main/README.md#inputs) section.

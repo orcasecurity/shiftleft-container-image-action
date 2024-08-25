@@ -121,6 +121,10 @@ inputs:
     description: "Debug mode"
     required: false
     default: "false"
+  disable_active_verification:
+    description: "Disable active verification"
+    required: false
+    default: "false"
   log_path:
     description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
     required: false
