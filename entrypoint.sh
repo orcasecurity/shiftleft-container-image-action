@@ -136,6 +136,9 @@ function set_container_scan_flags() {
   if [ "${INPUT_DEPENDENCY_TREE}" == "true" ]; then
     SCAN_FLAGS+=(--dependency-tree)
   fi
+  if [ "${INPUT_IMAGE_CORRELATION_ID}" ]; then
+    SCAN_FLAGS+=(--image-correlation-id "${INPUT_IMAGE_CORRELATION_ID}")
+  fi
 }
 
 function set_env_vars() {

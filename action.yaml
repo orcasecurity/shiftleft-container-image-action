@@ -118,6 +118,9 @@ inputs:
   log_path:
     description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
     required: false
+  image_correlation_id:
+    description: "A unique identifier used to correlate an image across multiple scans, enabling issue management in the Orca platform (e.g., dismissing or snoozing issues across scans). Use this flag when image names vary between scans."
+    required: false
 
 outputs:
   exit_code:
