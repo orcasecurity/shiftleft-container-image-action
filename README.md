@@ -72,7 +72,7 @@ jobs:
 | num_cpu                      | 10                                   | Number of logical CPUs to be used for secret scanning (default 10)                         | Integer | No       | 10          |
 | show_failed_issues_only      | n/a                                  | Show only failed issues                                                                    | Boolean | No       | false       |
 | custom_secret_controls       | custom_rules.yaml                    | Path to custom secret controls file                                                        | String  | No       | N/A         |
-| tar_archive                  | n/a                                  | Scan a tar archived image. Input should be the path of the image .tar file                 | Boolean | No       | false       |
+| tar_archive                  | n/a                                  | Scan a tar archived image. Input `image` should be the path of the image .tar file         | Boolean | No       | false       |
 | oci                          | n/a                                  | Scan an OCI image                                                                          | Boolean | No       | false       |
 | skip_remote_lookup           | false                                | Do not perform remote lookups for dependency information during the scan.                  | Boolean | No       | false       |
 | display_name                 | custom-display-name                  | Scan log display name (on Orca platform)                                                   | String  | No       | N/A         |

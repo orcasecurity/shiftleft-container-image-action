@@ -83,7 +83,7 @@ function set_container_scan_flags() {
     SCAN_FLAGS+=("${INPUT_IMAGE}")
   fi
   if [ "${INPUT_TAR_ARCHIVE}" ]; then
-    SCAN_FLAGS+=(--tar-archive "${INPUT_TAR_ARCHIVE}")
+    SCAN_FLAGS+=(--tar-archive)
   fi
   if [ "${INPUT_TIMEOUT}" ]; then
     SCAN_FLAGS+=(--timeout "${INPUT_TIMEOUT}")
